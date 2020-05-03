@@ -19,12 +19,12 @@ FOR_K -> for
 НЕТЕРМИНАЛЫ:
 
 lang -> expr*
-expr -> assign_expr|cond_expr|While_expr|command_expr                                                      
+expr -> assign_expr|cond_expr|While_expr|command_expr                                                            
 assign_expr -> VAR ASSIGN_OP value SEMICOLON                                                                     
-value -> VAR|DIGIT                                                                                          
+value -> VAR|DIGIT                                                                                            
 cond_expr -> cond_k body                                                                                          
 cond_k -> IF_K logical_expr
-logical_expr -> L_BRACKET oper_expr R_BRACKET 
+logical_expr -> L_BRACKET oper_expr R_BRACKET
 oper_expr -> value LOGICAL_OP value
 body -> L_QBRACKET expr* R_QBRACKET
 while_expr -> while_cond body 
