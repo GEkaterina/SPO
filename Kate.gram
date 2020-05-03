@@ -1,0 +1,37 @@
+ТЕРМИНАЛЫ:
+
+VAR -> [a-zA-Z]+                                                                  
+DIGIT -> 0|([1-9][0-9]*)                                                          
+ASSIGN_OP -> =
+OP -> +|-|*|/
+LOGICAL_OP → >|<|>=|<=|==
+SEMICOLON -> ;
+L_BRACKET -> (
+R_BRACKET -> )
+L_QBRACKET -> {
+R_QBRACKET -> }
+IF_K -> if
+WHILE_K -> while
+FOR_K -> for
+
+
+
+НЕТЕРМИНАЛЫ:
+
+lang -> expr*
+expr -> assign_expr|cond_expr|While_expr|command_expr                                                             b = 1;
+assign_expr -> VAR ASSIGN_OP value SEMICOLON                                                                      a = 3;
+value -> VAR|DIGIT                                                                                            while (a < 7) {
+cond_expr -> cond_k body                                                                                          a = b + a;}
+cond_k -> IF_K logical_expr
+logical_expr -> L_BRACKET oper_expr R_BRACKET
+oper_expr -> value LOGICAL_OP value
+body -> L_QBRACKET expr* R_QBRACKET
+while_expr -> while_cond body 
+while_cond -> WHILE_K logical_expr 
+command_expr -> VAR ASSIGN_OP value_expr SEMICOLON
+value_expr -> value|arithmetic_expr
+arithmetic_expr -> value(OP value)+
+
+
+
